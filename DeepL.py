@@ -56,8 +56,7 @@ for epoch in range(num_epochs):
         loss.backward()
         optimizer.step()
 
-        if (i+1) % 10 == 0:
-            print (f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{len(dataloader)}], Loss: {loss.item():.4f}')
+        print (f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{len(dataloader)}], Loss: {loss.item():.4f}')
 
 
 model.eval()
@@ -73,4 +72,3 @@ with torch.no_grad():
     accuracy = (predicted_labels == test_labels).float().mean()
 
     print(f"Accuracy on first 10 samples: {accuracy:.4f}")
-
